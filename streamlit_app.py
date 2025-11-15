@@ -4,8 +4,6 @@ import tensorflow as tf
 from tensorflow.keras.datasets import imdb
 from tensorflow.keras.preprocessing import sequence
 from tensorflow.keras.models import load_model
-import keras
-keras.config.enable_legacy_saving()
 
 
 #Load IMDB dataset word indedx to be used to encode/decode user review input
@@ -13,8 +11,7 @@ word_index = imdb.get_word_index()
 reverse_word_index = {value:key for key, value in word_index.items()}
 
 #Load pre-trained model with ReLU activation fn
-#model = load_model('simple_RNN_imdb_r0.h5')
-model = load_model('simple_RNN_imdb_r0.h5', compile=False)
+model = load_model('my_simple_rnn_imdb.keras')
 
 
 #Helper functions for encoding & padding user reviews and decoding embedded reviews 
@@ -55,6 +52,7 @@ if st.button('Classify'):
 else:
 
   st.write('Please enter a movie review')
+
 
 
 
