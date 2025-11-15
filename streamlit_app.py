@@ -11,7 +11,7 @@ word_index = imdb.get_word_index()
 reverse_word_index = {value:key for key, value in word_index.items()}
 
 #Load pre-trained model with ReLU activation fn
-model = load_model('my_simple_rnn_imdb.keras')
+model = tf.saved_model.load("my_simple_rnn_imdb_savedmodel")
 
 
 #Helper functions for encoding & padding user reviews and decoding embedded reviews 
@@ -52,6 +52,7 @@ if st.button('Classify'):
 else:
 
   st.write('Please enter a movie review')
+
 
 
 
