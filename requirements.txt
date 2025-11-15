@@ -1,6 +1,7 @@
 ipykernel
 scikit-learn
 tensorflow
+keras
 numpy
 tensorboard
 scikeras
@@ -8,4 +9,5 @@ gensim
 pandas
 matplotlib
 streamlit
+
 
