@@ -11,7 +11,10 @@ word_index = imdb.get_word_index()
 reverse_word_index = {value:key for key, value in word_index.items()}
 
 #Load pre-trained model with ReLU activation fn
-model = load_model('simple_RNN_imdb_r0.h5')
+#model = load_model('simple_RNN_imdb_r0.h5')
+from tensorflow.keras.src.saving import legacy_h5_format
+model = legacy_h5_format.load_model_from_hdf5('simple_RNN_imdb_r0.h5')
+
 
 #Helper functions for encoding & padding user reviews and decoding embedded reviews 
 #Function to encode a review of words into vectors and pad the vectors
@@ -49,4 +52,5 @@ if st.button('Classify'):
   st.write(f'Prediction Score: {prediction[0][0]}')
 
 else:
+
   st.write('Please enter a movie review')
